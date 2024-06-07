@@ -5,18 +5,20 @@ namespace Zadanie6_CodeFirst.Models;
 
 public class Prescription_Medicament
 {
-    [Key, Column(Order = 0), ForeignKey("Medicament")]
+    [Key]
     public int IdMedicament { get; set; }
+    public Medicament Medicament { get; set; }
 
-    [Key, Column(Order = 1), ForeignKey("Prescription")]
+    [Key]
     public int IdPrescription { get; set; }
+    public Prescription Prescription { get; set; }
 
     [Required]
     public int Dose { get; set; }
 
     [MaxLength(100)]
-    public string Details { get; set; } // Optional based on schema
+    public string Details { get; set; }
 
-    public virtual Medicament Medicament { get; set; }
-    public virtual Prescription Prescription { get; set; }
+    
+    
 }

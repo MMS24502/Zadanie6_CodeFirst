@@ -17,5 +17,7 @@ public class Medicament
     
     [MaxLength(100)]
     [Required]
-    public string Type { get; set; } 
+    public string Type { get; set; }
+    
+    public virtual ICollection<Prescription_Medicament> PrescriptionMedicaments { get; set; }
 }

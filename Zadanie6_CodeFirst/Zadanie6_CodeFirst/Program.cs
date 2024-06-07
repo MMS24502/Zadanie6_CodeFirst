@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Zadanie6_CodeFirst.Context;
 
 public class Program
@@ -11,7 +12,11 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddControllers();
-        builder.Services.AddDbContext<MasterContext>();
+        builder.Services.AddDbContext<MasterContext>(
+            opt =>
+            {
+                opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
         
 
 
